@@ -9,6 +9,10 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; color: "white";}
     max-width: 29%;
     height: auto;
 }
+body {
+    font-family: 'Playfair Display', serif  !important;
+    font-size: 14px !important;
+  }
 .asdas{
         font-family: -"Montserrat", sans-serif,bold, italic
 }
@@ -23,6 +27,9 @@ body {
     font-weight: 500;
     line-height: 1.1;
     color: white !important;
+}
+.w3-xlarge {
+    font-size: 37px!important;
 }
 p {
     display: block;
