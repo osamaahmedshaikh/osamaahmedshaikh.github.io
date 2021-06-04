@@ -48,6 +48,9 @@ p {
 .navbar-inverse .navbar-nav>li>a {
     padding: 15px 112px;
 }
+.navbar {
+    position: fixed;
+}
 .hello {
     background-image:url(photo-1536532184021-da5392b55da1.jfif) !important;
 }
