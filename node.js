@@ -28,6 +28,18 @@ var server = http.createServer(function(request, response) {
             response.end();  
             break;  
     }  
+});
+app.post("/login/",function(req,res){  
+    user = req.body.uname;
+    pass = req.body.psw;
+    if (user == "osamashaikh" && pass == "123456789"){
+        req.session.user = user;
+            res.redirect('/bio-admin.html');
+    }
+    else {
+        res.status("400");
+      res.send("Wrong details please enter correct username and password!");
+    }
 });  
 server.listen(port,err,function() {  
     if (err) {
