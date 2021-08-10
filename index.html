@@ -6,7 +6,10 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta name="viewpoint" content="width=device-width, initial-scale=1">
+<div ng-app="myApp" ng-controller='ctrl'>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="angular.js"></script>
+<meta name="viewpoint" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="mycss.css" type="text/css" media="screen"/>
 </head>
 <html lang="en">
@@ -37,63 +40,54 @@
 </body>
 <div class="w3-padding-large" id="main">
   <header class="w3-container w3-padding-32 w3-center" id="home">
-    <h1 class="w3-jumbo"><span class="w3-hide-small">Hi, I'm</span> Osama.</h1>
+    <h1 class="w3-jumbo"><span class="w3-hide-small"></span>{{title1}}</h1>
     <div class="asdas">
-    <p><b>Python and Fullstack Developer.</b></p>
+    <p><b>{{smalltitle}}</b></p>
     </div>
-    <img src="WhatsApp Image 2021-05-26 at 3.29.23 PM.jpeg" alt="boy" class="w3-image">
+    <img src= {{image}} alt="boy" class="w3-image">
   </header>
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-    <h2 class="w3-text", color="black">Osama Shaikh</h2>
+    <h2 class="w3-text", color="black">{{fullname}}</h2>
     <hr style="width:200px" class="w3-opacity">
-    <p id= "about">I am currently a fourth-year student at the University of Ontario Institute of Technology pursuing a Bachelor's degree in Information Technology, Last Semester </br> <br> GPA: 3.64. I have a lot of developing experience as I have worked on a lot of personal projects over 2018, 2019, and 2020. This has allowed me to improve </br> <br>my front end and back end programming skills.
-
-I am currently part of the Computer Science club at Ontario Tech University where I try to take part in coding </br> <br>competitions to improve my skills and avail more knowledge.
-
-Skills: Word, PowerPoint, Excel, Access. Python, C++, C#, HTML5, CSS3, Bootstrap</br> <br>, JavaScript, jQuery, PHP, Angular.js, Node.js, JSON, AJAX, XML, NoSQL, SQL, MongoDB, AJAX, RESTful API, Git/GitHub, and WordPress.
-
-I appreciate</br> <br> growing my network and anxious to get familiar with new things and meet individual representatives and experts to share my encounters and information.
-
-Visit</br> <br>my Github to see all my projects and the recent project that I am currently working on. https://github.com/osamaahmedshaikh
-
-contact:</br> <br> 𝐨𝐬𝐚𝐦𝐚.𝐬𝐡𝐚𝐢𝐤𝐡@𝐨𝐧𝐭𝐚𝐫𝐢𝐨𝐭𝐞𝐜𝐡𝐮.𝐧𝐞𝐭
+    <p id= "about">{{bio1}}</br> <br>{{bio2}}</br> <br>{{bio3}}{{bio4}}</br> <br>{{bio5}}
+{{bio6}}</br> <br>{{bio7}}</br> <br>{{bio8}}</br> <br>{{bio9}}{{bio10}}</br> <br>{{bio11}}
     </p>
-    <h3 class="w3-padding-16 w3-text , color="black"" id="skill">My Skills</h3>
+    <h3 class="w3-padding-16 w3-text , color="black"" id="skill">{{skills}}</h3>
     <hr style="width:200px" class="w3-opacity">
-    <p class="w3-wide"><b>Python</p>
+    <p class="w3-wide"><b>{{skills1}}</p>
     <div class="w3-white">
-      <div class="w3-blue" style="height:28px;width:95%"></div>
+      <div class="w3-blue" style="height:28px;width:{{percent1}}%"></div>
     </div>
-    <p class="w3-wide">HTML5</p>
+    <p class="w3-wide">{{skills2}}</p>
     <div class="w3-white">
-      <div class="w3-blue" style="height:28px;width:85%"></div>
+      <div class="w3-blue" style="height:28px;width:{{percent2}}%"></div>
     </div>
-    <p class="w3-wide">CSS3</p>
+    <p class="w3-wide">{{skills3}}</p>
     <div class="w3-white">
-      <div class="w3-blue" style="height:28px;width:80%"></div>
+      <div class="w3-blue" style="height:28px;width:{{percent3}}%"></div>
     </div><br>
-        <p class="w3-wide">JavaScript</p>
+        <p class="w3-wide">{{skills4}}</p>
     <div class="w3-white">
-      <div class="w3-blue" style="height:28px;width:75%"></div>
+      <div class="w3-blue" style="height:28px;width:{{percent4}}%"></div>
     </div>
-    <p class="w3-wide">jquery</p>
+    <p class="w3-wide">{{skills5}}</p>
     <div class="w3-white">
-      <div class="w3-blue" style="height:28px;width:70%"></div>
-    </div>    <p class="w3-wide">Angular</p>
+      <div class="w3-blue" style="height:28px;width:{{percent5}}%"></div>
+    </div>    <p class="w3-wide">{{skills6}}</p>
     <div class="w3-white">
-      <div class="w3-blue" style="height:28px;width:91%"></div>
+      <div class="w3-blue" style="height:28px;width:{{percent6}}%"></div>
     </div>
-    <p class="w3-wide">Node</p>
+    <p class="w3-wide">{{skills7}}</p>
     <div class="w3-white">
-      <div class="w3-blue" style="height:28px;width:65%"></div>
+      <div class="w3-blue" style="height:28px;width:{{percent7}}%"></div>
     </div>
-        <p class="w3-wide">MongoDB</p>
+        <p class="w3-wide">{{skills8}}</p>
     <div class="w3-white">
-      <div class="w3-blue" style="height:28px;width:68%"></div>
+      <div class="w3-blue" style="height:28px;width:{{percent8}}%"></div>
     </div>
-        <p class="w3-wide">SQL</p></b>
+        <p class="w3-wide">{{skills9}}</p></b>
     <div class="w3-white">
-      <div class="w3-blue" style="height:28px;width:60%"></div>
+      <div class="w3-blue" style="height:28px;width:{{percent9}}%"></div>
     </div>
     
     <button class="w3-button w3-light-grey w3-padding-large w3-section">
@@ -104,22 +98,11 @@ contact:</br> <br> 𝐨𝐬𝐚𝐦𝐚.𝐬𝐡𝐚𝐢𝐤𝐡@𝐨𝐧𝐭�
     <hr style="width:200px" class="w3-opacity">
 
     <div class="w3-section">
-      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Toronto, Canada</p>
-      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: 647-719-7345</p>
-      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: osama.shaikh@ontariotechu.net</p>
+      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i>{{address}}</p>
+      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i>{{phone}}</p>
+      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i>{{email}}</p>
     </div><br>
     <p>Send me a message to get in touch!.</p>
-
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message"></p>
-      <p>
-        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-      </p>
-    </form>
   </div>
     <center>
   <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
