@@ -1,69 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-<link rel="stylesheet" href="mycss.css" type="text/css" media="screen"/>
-<div class="hello">
-</div>
-<!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: "Montserrat", sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-}
-</style>
+    <link href="csg.css" rel="stylesheet" type="text/css" />
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.js"></script>
 </head>
 <body>
-
-<div class="bg-image"></div>
-
-<div class="bg-text">
-<h2><center>Login</h2>
-  <br>
-  <br>
-  <form class="form-horizontal" action="/action_page.php">
-  <div class="boxses">
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="Username">Username:</label>
-      <div class="col-sm-10">
-        <input type="Username" class="form-control" id="Username" placeholder="Enter Username" name="Username">
-      </div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><b>Osama Shaikh</b></a>
     </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Password:</label>
-      <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
-      </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#home"><b>Home</b></a></li>
+      <li><a href="#about"><b>About</b></a></li>
+      <li><a href="#skill"><b>Skills</b></a></li>
+      <li><a href="#contact"><b>Contact</b></a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="loginpage.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+</body>
+<div class="login-box">
+  <h2>Login</h2>
+  <form id="login" action="http://localhost:8080/login/"method="POST" enctype="application/json">
+    <div class="user-box">
+      <input type="text" name="username" id="email" placeholder="Username">
+      <label>Username</label>
     </div>
-    <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-10">
-        <div class="checkbox">
-          <label><input type="checkbox" name="remember"> Remember me</label>
-        </div>
-      </div>
+    <div class="user-box">
+      <input type="password" name="password" id="password" placeholder="Password">
+      <label>Password</label>
     </div>
-    <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default">Submit</button>
-      </div>
-    </div>
+    <a href="#">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <input type="Submit" name="Login" id="go" value="Submit">
+      </input>
+    </a>
   </form>
 </div>
-</div>
-</div>
-</body>
 </html>
