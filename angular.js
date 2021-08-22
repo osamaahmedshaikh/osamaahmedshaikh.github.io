@@ -47,6 +47,7 @@ $scope.skills8 = "MongoDB";
 $scope.percent8 = "82";
 $scope.skills9 = "SQL";
 $scope.percent9 = "88";
+$scope.projects = "My Projects";
 $scope.address = " Toronto, Canada";
 $scope.phone = " Phone: 647-719-7345";
 $scope.email = " Email: osama.shaikh@ontariotechu.net";

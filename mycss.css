@@ -1,3 +1,57 @@
+.tcontainer {
+    /* width: 100%; */
+    /* overflow: hidden; */
+    /* position: fixed; */
+    padding-right: 100% !important;
+    padding-left: 100% !important;
+}
+
+.ticker-wrap {
+    /* width: 100%; */
+    padding-left: 100%;
+    background-color: rgba(238, 238, 238, 0.171);
+    color: #fff;
+
+}
+
+@keyframes ticker {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+.ticker-move {
+    display: inline-block;
+    white-space: nowrap;
+    padding-right: 100%;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: ticker;
+    animation-duration: 50s;
+}
+
+.ticker-move:hover {
+    animation-play-state: paused;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.ticker-item {
+    display: inline-block;
+    padding: 5px 40px 7px 9px;
+    font-size: 20px;
+}
+
+
+
+
+
+  
 body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; color: "white";}
 .w3-row-padding img {margin-bottom: 12px}
 /* Set the width of the sidebar to 120px */
@@ -41,7 +95,7 @@ p {
 }
 .container-fluid {
     padding-right: 15px;
-    padding-left: 15px;
+    padding-left: 2px !important;
     margin-right: auto;
     margin-left: auto;
     font-family: "Montserrat", sans-serif;
@@ -122,3 +176,108 @@ p {
     text-align: center;
   }
 @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+
+  #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 59px;
+    left: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: darkgrey;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 28px;
+  }
+  
+    #myBtn:hover {
+        background-color: #555;
+    }
+
+
+
+    body {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box;}
+    
+    /* Button used to open the contact form - fixed at the bottom of the page */
+    .open-button {
+      background-color: #555;
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      opacity: 0.8;
+      position: fixed;
+      bottom: 23px;
+      right: 28px;
+      width: 280px;
+    }
+    
+    /* The popup form - hidden by default */
+    .form-popup {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      right: 15px;
+      border: 3px solid transparent;
+      z-index: 9;
+    }
+    
+    /* Add styles to the form container */
+    .form-container {
+      max-width: 300px;
+      padding: 10px 16px 20px 5px;
+      background-color: rgb(35 36 38);
+    }
+    
+    /* Full-width input fields */
+    .form-container input[type=text], .form-container input[type=password] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      border: none;
+      background-color: white;
+    }
+    
+    /* When the inputs get focus, do something */
+    .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+      background-color: white;
+      outline: none;
+    }
+    
+    /* Set a style for the submit/login button */
+    .form-container .btn {
+      background-color: rgb(28 29 31);
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom:10px;
+      opacity: 0.8;
+    }
+    
+    /* Add a red background color to the cancel button */
+    .form-container .cancel {
+      background-color: rgb(28 29 31);
+    }
+    
+    /* Add some hover effects to buttons */
+    .form-container .btn:hover, .open-button:hover {
+      opacity: 1;
+    }
+    b, strong {
+        color: white;
+    }
+
+
+
+
+
+
+
+
+
+    

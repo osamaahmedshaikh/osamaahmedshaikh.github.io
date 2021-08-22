@@ -79,7 +79,7 @@ app.post("/login/",function(req,res){
     }
     else {
         res.status("400");
-      res.send('<center><h1 style = "color: red; font-weight: bold">Wrong details please enter correct username and password! please return to this link and try again www.google.com.</h1></center>');
+      res.send('<center><h1 style = "color: red; font-weight: bold">Wrong details please enter correct username and password! please return to this link and try again https://osamaahmedshaikh.github.io/.</h1></center>');
     }
 });
 app.get("/Biodata/",function(req,res){
@@ -94,33 +94,36 @@ app.get("/Biodata/",function(req,res){
         });  
     });
 });
-var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'raftwild2@gmail.com',
-      pass: 'Os@ma1995'
-    }
-  });
+// var transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     auth: {
+//       user: 'raftwild2@gmail.com',
+//       pass: 'Os@ma1995'
+//     }
+//   });
   
-  var mailOptions = {
-    from: 'youremail@gmail.com',
-    to: 'raftwild2@gmail.com',
-    subject: 'Hello',
-    html: '<h1>Welcome</h1><p>good job</p>'
-  }
+//   var mailOptions = {
+//     from: 'youremail@gmail.com',
+//     to: 'raftwild2@gmail.com',
+//     subject: 'Hello',
+//     html: '<h1>Welcome</h1><p>good job</p>'
+//   }
   
-  transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
-  });
+//   transporter.sendMail(mailOptions, function(error, info){
+//     if (error) {
+//       console.log(error);
+//     } else {
+//       console.log('Email sent: ' + info.response);
+//     }
+//   });
+// var myInt = setInterval(function () {
+//     console.log("The Node is running in localhost:" + port);
+// }, 5000);
 app.get("",function(req,res){
     res.sendFile('index.html',{
         root:__dirname
     })
 });
 app.listen(port,function() {  
-    console.log("Server listening on: " + port);
+    console.log("Server listening on port: " + port);
 });

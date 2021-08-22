@@ -21,23 +21,22 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#"><b>Osama Shaikh</b></a>
+      <a class="navbar-brand" href="#"><b class="active">Osama Shaikh</b></a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#home"><b>Home</b></a></li>
+      <li><a href="#home"><b>Home</b></a></li>
       <li><a href="#about"><b>About</b></a></li>
       <li><a href="#skill"><b>Skills</b></a></li>
+      <li><a href="#projects"><b>Projects</b></a></li>
       <li><a href="#contact"><b>Contact</b></a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="loginpage.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
   </div>
 </nav>
 </body>
+
 <div class="w3-padding-large" id="main">
   <header class="w3-container w3-padding-32 w3-center" id="home">
     <h1 class="w3-jumbo"><span class="w3-hide-small"></span>{{title1}}</h1>
@@ -89,7 +88,46 @@
     <div class="w3-white">
       <div class="w3-blue" style="height:28px;width:{{percent9}}%"></div>
     </div>
-    
+    <h3 class="w3-padding-16 w3-text , color="black"" id="projects">{{projects}}</h3>
+    <hr style="width:200px" class="w3-opacity">
+    <button onclick="writingnumber1()"><b>Details</b></button>
+
+<p id="detail1"></p>
+
+<script>
+var value = 0;
+var words = 'Successfully developed an encryption converter that would perform in converting English words into 6 random encrypts (RSA, Substitution, Product, Transposition, Caesar, and Playfair).';
+var limit = 50;
+
+function writingnumber1() {
+  if (value < words.length) {
+    document.getElementById("detail1").innerHTML += words.charAt(value);
+    value++;
+    setTimeout(writingnumber1, limit);
+  }
+}
+</script>
+    <iframe src="https://trinket.io/embed/python/ebb3f8bf5f" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+    </br></br>
+<button onclick="typeWriter()">Detail 2</button>
+
+<p id="demo"></p>
+
+<script>
+var i = 0;
+var txt = 'Successfully have created this project. In this project, we build up a game that will allow two people to guess the word from a list of 10 words, If a player 1 guess the word right he will receive the point if player 2 guess the word then player 2 will receive the point if they both end up receiving same points then the game will draw';
+var speed = 50;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+</script>
+
+    <iframe src="https://trinket.io/embed/python/4fc1500c48" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
     <button class="w3-button w3-light-grey w3-padding-large w3-section">
       <i class="fa fa-download"></i> <a href="Osama+Shaikh+Resume.pdf" download="Osama Shaikh Resume"> Download Resume</a>
     </button>
@@ -112,5 +150,70 @@
   </footer>
   </center>
 </div>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <button onclick="topFunction()" id="myBtn" title="Go to top">&#11165;</button>
+    <script>
+      var mybutton = document.getElementById("myBtn");
+      window.onscroll = function () { scrollFunction() };
+      function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+          mybutton.style.display = "none";
+          }
+          }
+          function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+          }
+    </script>
+<button class="open-button" onclick="openForm()">Admin Login</button>
+<div class="form-popup" id="myForm">
+  <form id="login" action="http://localhost:8080/login/" method="POST" enctype="application/json" class="form-container">
+    <h2>Login</h2>
+
+    <label for="email"><b>Username</b></label>
+    <input type="text" name="username" id="email" placeholder="Username" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" name="password" id="password" placeholder="Password" required>
+    <input type="checkbox" onclick="myFunction()"> <b>Show password</b>
+    </br></br>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+
+    <button type="Submit" class="btn">Login</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+<div class="tcontainer">
+        <div class="ticker-wrap">
+            <div class="ticker-move">
+                <div class="ticker-item">𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐦𝐲 𝐖𝐞𝐛𝐬𝐢𝐭𝐞!</div>
+                <div class="ticker-item">𝐓𝐡𝐞 𝐜𝐫𝐞𝐚𝐭𝐨𝐫𝐬 𝐨𝐟 𝐭𝐡𝐢𝐬 𝐰𝐞𝐛𝐬𝐢𝐭𝐞 𝐢𝐬 𝐎𝐬𝐚𝐦𝐚 𝐒𝐡𝐚𝐢𝐤𝐡.</div>
+                <div class="ticker-item">𝐓𝐡𝐢𝐬 𝐖𝐞𝐛𝐩𝐚𝐠𝐞 𝐡𝐚𝐬 𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭𝐬 &#169;.</div>
+                <div class="ticker-item">𝐈 𝐡𝐨𝐩𝐞 𝐲𝐨𝐮 𝐞𝐧𝐣𝐨𝐲 𝐭𝐡𝐞 𝐰𝐞𝐛𝐬𝐢𝐭𝐞 𝐚𝐧𝐝 𝐓𝐡𝐚𝐧𝐤 𝐲𝐨𝐮 𝐚𝐠𝐚𝐢𝐧 𝐟𝐨𝐫 𝐯𝐢𝐬𝐢𝐭𝐢𝐧𝐠 𝐭𝐡𝐞 𝐰𝐞𝐛𝐬𝐢𝐭𝐞.<span>&#128102;&#127995;</span>.</div>
+            </div>
+        </div>
+</div>
+</html>
 </body>
 </html>
