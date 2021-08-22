@@ -1,95 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="mystylesadmin.css" rel="stylesheet" type="text/css" />
+    <link href="csg.css" rel="stylesheet" type="text/css" />
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.js"></script>
 </head>
 <body>
-    <div class="header">
-        <h1>Biography Admin</h1>
+<a href="index.html"><b>Back</b></a>
+<div class="login-box">
+  <h2>Bio Form</h2>
+  <form id="login" action="http://localhost:8080/Bio/"method="POST" enctype="multipart/form-data">
+    <div class="user-box">
+      <input type="text" name="title" id="email" placeholder="What do you want your title..">
+      <label>Title</label>
     </div>
-    <div class="navbar">
-        <a class="active" href="bio-admin.html"> Bio</a>
-        <a href="pub-admin.html"> Publication</a>
-        <a href="press-admin.html"> Press</a>
-        <a href="research-program-admin.html"> Research Interest</a>
-        <a href="teaching-admin.html"> Teaching</a>
-        <a href="group-admin.html"> Research Group</a>
-        <a href="contact-admin.html"> Contact</a>
+    <div class="user-box">
+      <input type="text" name="small" id="password" placeholder="What do you want your small title..">
+      <label>SmallTitle</label>
     </div>
-    <div class="container">
-        <form id="login" action="http://localhost:8080/Bio/"method="POST" enctype="multipart/form-data">
-            <div class="row">
-                <div class="col-25">
-                    <label for="fname"><b>Name</b></label>
-                </div>
-                <div class="col-75">
-                    <input type="text" id="fname" name="firstname" placeholder="Full name eg.john"  minlength="5" required>
-
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="subject"><b>Bio</b></label>
-                </div>
-                <div class="col-75">
-                    <textarea id="subject" name="bio" placeholder="Write your bio here" style="height:200px" minlength=20 required></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="subject"><b>About Myself</b></label>
-                </div>
-                <div class="col-75">
-                    <textarea id="subject" name="aboutmyself" placeholder="Write your bio here" style="height:200px" minlength=20 required></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="subject"><b>News 1</b></label>
-                </div>
-                <div class="col-75">
-                    <textarea id="subject" name="news1" placeholder="Write your bio here" style="height:200px" minlength=20 required></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="subject"><b>News 2</b></label>
-                </div>
-                <div class="col-75">
-                    <textarea id="subject" name="news2" placeholder="Write your bio here" style="height:200px" minlength=20 required></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="subject"><b>News 3</b></label>
-                </div>
-                <div class="col-75">
-                    <textarea id="subject" name="news3" placeholder="Write your bio here" style="height:200px" minlength=20 required></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="subject"><b>News 4</b></label>
-                </div>
-                <div class="col-75">
-                    <textarea id="subject" name="news4" placeholder="Write your bio here" style="height:200px" minlength=20 required></textarea>
-                </div>
-            </div>
-            <label for="lname"><b>Image file</b></label><br />
-            <input type="file" id="myFile" name="image">
-            <div class="update">
-                <br />
-                <input type="submit" value="Update">
-                <br /><br />
-            </div>
-        </form>
+    <div class="user-box">
+      <input type="file" id="myFile" name="image">
+      <label>Images</label>
     </div>
-    <script>
-        
-        $("#login").validate();
-    </script>
+    <div class="user-box">
+      <input type="text" name="fullname" id="password" placeholder="What is your fullname..">
+      <label>Fullname</label>
+    </div>
+    <div class="user-box">
+      <input type="text" name="address" id="email" placeholder="What is your Address..">
+      <label>Address</label>
+    </div>
+    <div class="user-box">
+      <input type="text" name="phone" id="password" placeholder="What is your phone number..">
+      <label>Phone</label>
+    </div>
+    <div class="user-box">
+      <input type="text" name="Email" id="email" placeholder="What is your email address..">
+      <label>Email</label>
+    </div>
+    <a href="#">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <input type="Submit" name="Login" id="go" value="Submit">
+      </input>
+    </a>
+  </form>
+</div>
 </body>
 </html>
