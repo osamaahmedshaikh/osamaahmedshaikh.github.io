@@ -1,219 +1,1118 @@
-<html>
-<head>
-<title>Portfolio</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div ng-app="myApp" ng-controller='ctrl'>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<script src="angular.js"></script>
-<meta name="viewpoint" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="mycss.css" type="text/css" media="screen"/>
-</head>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<meta charset="UTF-8">
+<title>Osama Shaikh — Systems Analyst</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Osama Shaikh — Systems Analyst, FIFA World Cup 2026™. Enterprise IT, infrastructure &amp; systems analysis across the public and private sectors. Toronto, Ontario.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:            #0A0C10;
+  --bg-alt:        #0E1117;
+  --surface:       #12151C;
+  --surface-2:     #171B24;
+  --border:        rgba(236,234,227,0.09);
+  --border-strong: rgba(236,234,227,0.16);
+  --text:          #ECEAE3;
+  --text-dim:      #9BA1AF;
+  --text-faint:    #5C6270;
+  --accent:        #F2A93B;
+  --accent-dim:    rgba(242,169,59,0.14);
+  --teal:          #5FD3C4;
+  --font-display:  'Space Grotesk', sans-serif;
+  --font-body:     'Inter', sans-serif;
+  --font-mono:     'JetBrains Mono', monospace;
+  --container:     1180px;
+  --ease:          cubic-bezier(.16,.8,.24,1);
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
+button{ font-family:inherit; background:none; border:none; cursor:pointer; color:inherit; }
+
+::selection{ background:var(--accent); color:#0A0C10; }
+
+.noise-overlay{
+  position:fixed; inset:0; pointer-events:none; z-index:9999;
+  opacity:.025; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  letter-spacing:.02em;
+  color:var(--accent);
+  display:flex; align-items:center; gap:8px;
+  margin-bottom:18px;
+}
+.eyebrow .dot{
+  width:6px; height:6px; border-radius:50%; background:var(--accent);
+  box-shadow:0 0 8px var(--accent);
+  flex-shrink:0;
+}
+
+.section-title{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:clamp(30px, 4.4vw, 52px);
+  line-height:1.08;
+  letter-spacing:-0.01em;
+  margin-bottom:20px;
+}
+.section-title.big{ font-size:clamp(38px, 6vw, 68px); }
+.section-lede{
+  color:var(--text-dim);
+  font-size:17px;
+  max-width:520px;
+  margin-bottom:48px;
+}
+
+.section{ padding:120px 0; position:relative; }
+.section-alt{ background:var(--bg-alt); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.section-inner{ max-width:var(--container); margin:0 auto; padding:0 32px; }
+
+/* scroll reveal */
+.reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal.in{ opacity:1; transform:translateY(0); }
+
+
+.nav{
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  background:rgba(10,12,16,.7);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s var(--ease), background .3s var(--ease);
+}
+.nav.scrolled{ border-bottom-color:var(--border); }
+.nav-inner{
+  max-width:var(--container); margin:0 auto; padding:0 32px;
+  height:72px; display:flex; align-items:center; justify-content:space-between;
+}
+.nav-mark{
+  font-family:var(--font-mono); font-weight:600; font-size:16px;
+  letter-spacing:.02em;
+}
+.mark-bracket{ color:var(--accent); }
+.nav-links{ display:flex; gap:36px; }
+.nav-links a{
+  font-family:var(--font-mono); font-size:13px; color:var(--text-dim);
+  text-transform:lowercase; display:flex; align-items:center; gap:6px;
+  transition:color .2s var(--ease);
+}
+.nav-links a:hover{ color:var(--text); }
+.nav-links .idx{ color:var(--text-faint); font-size:11px; }
+.nav-cta{
+  display:flex; align-items:center; gap:8px;
+  font-family:var(--font-mono); font-size:13px;
+  border:1px solid var(--border-strong); padding:9px 16px; border-radius:100px;
+  transition:border-color .2s var(--ease), background .2s var(--ease);
+}
+.nav-cta:hover{ border-color:var(--accent); background:var(--accent-dim); color:var(--accent); }
+.nav-burger{ display:none; flex-direction:column; gap:5px; padding:8px; }
+.nav-burger span{ width:20px; height:1.5px; background:var(--text); display:block; transition:.3s var(--ease); }
+.nav-mobile{
+  display:none; flex-direction:column;
+  background:var(--bg-alt); border-bottom:1px solid var(--border);
+  padding:8px 32px 20px;
+}
+.nav-mobile a{ font-family:var(--font-mono); font-size:14px; padding:12px 0; border-bottom:1px solid var(--border); color:var(--text-dim); }
+.nav-mobile.open{ display:flex; }
+
+
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex; align-items:center;
+  padding:120px 32px 80px;
+  overflow:hidden;
+}
+.hero-grid{
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 40%, black 10%, transparent 75%);
+  opacity:.6;
+}
+.hero-inner{
+  position:relative; max-width:var(--container); margin:0 auto;
+  width:100%;
+  display:grid; grid-template-columns:1.1fr .9fr; gap:64px; align-items:center;
+}
+.hero-title{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(52px, 8vw, 96px);
+  line-height:.98;
+  letter-spacing:-0.02em;
+  margin:20px 0 26px;
+}
+.hero-title .line{ display:block; }
+.cursor-fixed{ color:var(--accent); }
+.hero-sub{
+  color:var(--text-dim); font-size:18px; max-width:440px; margin-bottom:36px;
+}
+.hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--font-mono); font-size:14px;
+  padding:14px 22px; border-radius:100px;
+  transition:transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease);
+}
+.btn svg{ transition:transform .2s var(--ease); }
+.btn:hover svg{ transform:translateX(3px); }
+.btn-primary{ background:var(--accent); color:#0A0C10; font-weight:600; }
+.btn-primary:hover{ transform:translateY(-2px); }
+.btn-ghost{ border:1px solid var(--border-strong); color:var(--text); }
+.btn-ghost:hover{ border-color:var(--text-dim); transform:translateY(-2px); }
+
+/* terminal */
+.terminal{
+  background:var(--surface);
+  border:1px solid var(--border-strong);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.6);
+}
+.terminal-bar{
+  display:flex; align-items:center; gap:8px;
+  padding:12px 16px; border-bottom:1px solid var(--border);
+  background:var(--surface-2);
+}
+.tdot{ width:9px; height:9px; border-radius:50%; display:inline-block; }
+.tdot.r{ background:#FF5F57; }
+.tdot.y{ background:#FEBC2E; }
+.tdot.g{ background:#28C840; }
+.terminal-title{
+  margin-left:8px; font-family:var(--font-mono); font-size:11.5px; color:var(--text-faint);
+}
+.terminal-body{
+  padding:22px 20px 26px;
+  font-family:var(--font-mono); font-size:14px; line-height:1.9;
+  min-height:230px;
+}
+.tline{ color:var(--text-dim); white-space:pre-wrap; }
+.tline .prompt{ color:var(--accent); margin-right:6px; }
+.tline.result{ color:var(--text); padding-left:20px; }
+.tline.accent{ color:var(--teal); padding-left:20px; }
+.typed::after{
+  content:''; display:inline-block; width:7px; height:15px;
+  background:var(--accent); margin-left:3px; vertical-align:-2px;
+  animation:blink 1s steps(1) infinite;
+}
+.typed.done::after{ display:none; }
+@keyframes blink{ 50%{ opacity:0; } }
+
+.scroll-hint{
+  position:absolute; bottom:32px; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  font-family:var(--font-mono); font-size:11px; color:var(--text-faint);
+  letter-spacing:.08em; text-transform:uppercase;
+}
+.scroll-line{ width:1px; height:36px; background:var(--border-strong); position:relative; overflow:hidden; }
+.scroll-dot{
+  position:absolute; top:0; left:-1px; width:3px; height:10px; background:var(--accent);
+  animation:scrollmove 1.8s ease-in-out infinite;
+}
+@keyframes scrollmove{
+  0%{ top:-10px; } 60%{ top:36px; } 100%{ top:36px; }
+}
+
+
+.about-grid{
+  display:grid; grid-template-columns:.8fr 1.2fr; gap:72px; align-items:start;
+}
+.photo-frame{
+  border-radius:14px; overflow:hidden; border:1px solid var(--border-strong);
+  aspect-ratio:4/5; position:relative;
+}
+.photo-frame img{ width:100%; height:100%; object-fit:cover; filter:grayscale(30%) contrast(1.05); }
+.photo-tag{
+  margin-top:16px; display:flex; align-items:center; gap:8px;
+  font-family:var(--font-mono); font-size:12px; color:var(--text-dim);
+}
+.tag-dot{
+  width:7px; height:7px; border-radius:50%; background:var(--teal);
+  box-shadow:0 0 8px var(--teal); flex-shrink:0;
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.4; } }
+
+.about-copy p{ color:var(--text-dim); margin-bottom:18px; max-width:560px; }
+.about-stats{ display:flex; gap:44px; margin-top:36px; padding-top:32px; border-top:1px solid var(--border); }
+.stat-num{
+  display:block; font-family:var(--font-display); font-size:40px; font-weight:700; color:var(--accent);
+}
+.stat-label{
+  font-family:var(--font-mono); font-size:11.5px; color:var(--text-faint); line-height:1.4; text-transform:lowercase;
+}
+
+
+.stack-grid{
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:48px;
+  margin-bottom:56px;
+}
+.stack-grid-4{ grid-template-columns:repeat(4, 1fr); gap:36px; }
+@media (max-width:1100px){
+  .stack-grid-4{ grid-template-columns:repeat(2, 1fr); }
+}
+.stack-col-title{
+  font-family:var(--font-display); font-size:16px; font-weight:600;
+  display:flex; align-items:center; gap:10px; margin-bottom:24px;
+  padding-bottom:14px; border-bottom:1px solid var(--border);
+}
+.col-mono{ font-family:var(--font-mono); font-size:12px; color:var(--accent); }
+.skill-row{
+  display:grid; grid-template-columns:110px 1fr 40px; align-items:center; gap:14px;
+  margin-bottom:16px;
+}
+.skill-name{ font-size:13.5px; color:var(--text); }
+.skill-track{
+  height:4px; background:var(--surface-2); border-radius:2px; overflow:hidden;
+  border:1px solid var(--border);
+}
+.skill-fill{
+  height:100%; width:0%; border-radius:2px;
+  background:linear-gradient(90deg, var(--teal), var(--accent));
+  transition:width 1.1s var(--ease);
+}
+.skill-pct{ font-family:var(--font-mono); font-size:11px; color:var(--text-faint); text-align:right; }
+
+.tools-strip{
+  display:flex; flex-wrap:wrap; gap:12px 28px;
+  padding-top:32px; border-top:1px solid var(--border);
+  font-family:var(--font-mono); font-size:12.5px; color:var(--text-faint);
+}
+
+
+.projects{ display:flex; flex-direction:column; gap:110px; }
+.project{
+  display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;
+}
+.project.reverse{ direction:rtl; }
+.project.reverse > *{ direction:ltr; }
+
+.code-panel{
+  background:var(--surface); border:1px solid var(--border-strong); border-radius:12px;
+  overflow:hidden; box-shadow:0 24px 60px -24px rgba(0,0,0,.55);
+}
+.code-panel-head{
+  display:flex; align-items:center; gap:8px; padding:11px 16px;
+  border-bottom:1px solid var(--border); background:var(--surface-2);
+}
+.code-path{ margin-left:8px; font-family:var(--font-mono); font-size:11px; color:var(--text-faint); }
+.code-body{
+  padding:22px 20px; font-family:var(--font-mono); font-size:13px; line-height:1.85;
+  overflow-x:auto; color:var(--text-dim);
+}
+.c-kw{ color:#C792EA; } .c-fn{ color:var(--teal); } .c-str{ color:var(--accent); } .c-num{ color:#F78C6C; } .c-cm{ color:var(--text-faint); font-style:italic; }
+
+.project-tag{
+  font-family:var(--font-mono); font-size:12px; color:var(--accent); display:block; margin-bottom:12px;
+}
+.project-copy h3{
+  font-family:var(--font-display); font-size:clamp(22px,2.6vw,30px); font-weight:600; margin-bottom:14px; line-height:1.15;
+}
+.project-copy p{ color:var(--text-dim); margin-bottom:20px; max-width:480px; }
+.chip-row{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px; }
+.chip{
+  font-family:var(--font-mono); font-size:11.5px; color:var(--text-dim);
+  border:1px solid var(--border-strong); padding:6px 12px; border-radius:100px;
+}
+.demo-toggle{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--font-mono); font-size:13px; color:var(--accent);
+  border:1px solid var(--accent-dim); background:var(--accent-dim);
+  padding:10px 16px; border-radius:100px;
+  transition:background .2s var(--ease);
+}
+.demo-toggle:hover{ background:rgba(242,169,59,.24); }
+.demo-toggle svg{ transition:transform .2s var(--ease); }
+.demo-toggle.open svg{ transform:rotate(90deg); }
+.demo-frame{
+  max-height:0; overflow:hidden; margin-top:0;
+  border-radius:10px; transition:max-height .5s var(--ease), margin-top .5s var(--ease);
+  border:1px solid var(--border);
+}
+.demo-frame.open{ max-height:360px; margin-top:18px; }
+.demo-frame iframe{ display:block; }
+
+
+.timeline{ position:relative; max-width:760px; }
+.timeline::before{
+  content:''; position:absolute; left:5px; top:6px; bottom:6px; width:1px; background:var(--border-strong);
+}
+.tl-item{ position:relative; padding-left:40px; margin-bottom:44px; }
+.tl-item:last-child{ margin-bottom:0; }
+.tl-dot{
+  position:absolute; left:0; top:5px; width:11px; height:11px; border-radius:50%;
+  background:var(--bg-alt); border:2px solid var(--accent);
+}
+.tl-date{ font-family:var(--font-mono); font-size:12px; color:var(--text-faint); margin-bottom:8px; }
+.tl-content h4{ font-family:var(--font-display); font-size:19px; font-weight:600; margin-bottom:4px; }
+.tl-org{ color:var(--accent); font-size:13.5px; margin-bottom:10px; font-family:var(--font-mono); }
+.tl-content p{ color:var(--text-dim); max-width:520px; }
+
+.certs-block{ margin-top:64px; padding-top:40px; border-top:1px solid var(--border); }
+.certs-block .chip-row{ margin-bottom:0; }
+.cert-group{ margin-bottom:36px; }
+.cert-group-label{
+  display:block; font-family:var(--font-mono); font-size:11px;
+  color:var(--accent); text-transform:uppercase; letter-spacing:.08em;
+  margin-bottom:12px;
+}
+.cert-grid{
+  display:grid; grid-template-columns:repeat(2, 1fr); gap:1px;
+  background:var(--border); border:1px solid var(--border); border-radius:10px;
+  overflow:hidden;
+}
+.cert-card{
+  display:flex; flex-direction:column; gap:5px;
+  background:var(--surface); padding:15px 18px;
+  transition:background .2s var(--ease);
+}
+.cert-card:hover{ background:var(--surface-2); }
+.cert-name{ font-size:13.5px; color:var(--text); line-height:1.3; }
+.cert-meta{ font-family:var(--font-mono); font-size:11px; color:var(--text-faint); }
+@media (max-width:640px){
+  .cert-grid{ grid-template-columns:1fr; }
+}
+
+
+.contact{ padding-bottom:100px; }
+.contact-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:60px; }
+.contact-link{
+  display:flex; flex-direction:column; gap:4px;
+  padding:22px 0; border-bottom:1px solid var(--border);
+  transition:padding-left .25s var(--ease);
+}
+a.contact-link:hover{ padding-left:12px; border-color:var(--accent); }
+.contact-label{ font-family:var(--font-mono); font-size:11.5px; color:var(--text-faint); text-transform:lowercase; }
+.contact-value{ font-family:var(--font-display); font-size:20px; font-weight:500; }
+.contact-link-static:hover{ padding-left:0; }
+
+.contact-social{ display:flex; flex-direction:column; gap:12px; }
+.social-btn{
+  display:flex; align-items:center; justify-content:space-between;
+  font-family:var(--font-mono); font-size:14px;
+  border:1px solid var(--border-strong); padding:16px 20px; border-radius:10px;
+  transition:border-color .2s var(--ease), background .2s var(--ease), transform .2s var(--ease);
+}
+.social-btn:hover{ border-color:var(--text-dim); transform:translateX(4px); }
+.social-btn-fill{ background:var(--accent); color:#0A0C10; border-color:var(--accent); font-weight:600; }
+.social-btn-fill:hover{ background:var(--accent); }
+
+
+.footer{ border-top:1px solid var(--border); padding:28px 0; }
+.footer-inner{
+  max-width:var(--container); margin:0 auto; padding:0 32px;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  font-family:var(--font-mono); font-size:12px; color:var(--text-faint);
+}
+.footer-status{ display:flex; align-items:center; gap:8px; }
+
+.to-top{
+  position:fixed; bottom:28px; right:28px; z-index:800;
+  width:44px; height:44px; border-radius:50%;
+  background:var(--surface); border:1px solid var(--border-strong);
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; transform:translateY(10px); pointer-events:none;
+  transition:opacity .3s var(--ease), transform .3s var(--ease), border-color .2s var(--ease);
+}
+.to-top.show{ opacity:1; transform:translateY(0); pointer-events:auto; }
+.to-top:hover{ border-color:var(--accent); color:var(--accent); }
+
+
+@media (max-width:980px){
+  .hero-inner{ grid-template-columns:1fr; }
+  .about-grid{ grid-template-columns:1fr; }
+  .about-photo{ max-width:300px; }
+  .stack-grid{ grid-template-columns:1fr 1fr; }
+  .project, .project.reverse{ grid-template-columns:1fr; direction:ltr; }
+  .contact-grid{ grid-template-columns:1fr; }
+}
+@media (max-width:720px){
+  .nav-links, .nav-cta{ display:none; }
+  .nav-burger{ display:flex; }
+  .section{ padding:80px 0; }
+  .stack-grid, .stack-grid-4{ grid-template-columns:1fr; gap:36px; }
+  .hero-title{ font-size:clamp(42px,13vw,64px); }
+  .skill-row{ grid-template-columns:96px 1fr 36px; gap:10px; }
+}
+
+</style>
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#"><b class="active">Osama Shaikh</b></a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="#home"><b>Home</b></a></li>
-      <li><a href="#about"><b>About</b></a></li>
-      <li><a href="#skill"><b>Skills</b></a></li>
-      <li><a href="#projects"><b>Projects</b></a></li>
-      <li><a href="#contact"><b>Contact</b></a></li>
-  </div>
-</nav>
-</body>
+<div class="noise-overlay" aria-hidden="true"></div>
 
-<div class="w3-padding-large" id="main">
-  <header class="w3-container w3-padding-32 w3-center" id="home">
-    <h1 class="w3-jumbo"><span class="w3-hide-small"></span>{{title1}}</h1>
-    <div class="asdas">
-    <p><b>{{smalltitle}}</b></p>
-    </div>
-    <img src= {{image}} alt="boy" class="w3-image">
-  </header>
-  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-    <h2 class="w3-text", color="black">{{fullname}}</h2>
-    <hr style="width:200px" class="w3-opacity">
-    <p id= "about">{{bio1}}</br> <br>{{bio2}}</br> <br>{{bio3}}{{bio4}}</br> <br>{{bio5}}
-{{bio6}}</br> <br>{{bio7}}</br> <br>{{bio8}}</br> <br>{{bio9}}{{bio10}}</br> <br>{{bio11}}
-    </p>
-    <h3 class="w3-padding-16 w3-text , color="black"" id="skill">{{skills}}</h3>
-    <hr style="width:200px" class="w3-opacity">
-    <p class="w3-wide"><b>{{skills1}}</p>
-    <div class="w3-white">
-      <div class="w3-blue" style="height:28px;width:{{percent1}}%"></div>
-    </div>
-    <p class="w3-wide">{{skills2}}</p>
-    <div class="w3-white">
-      <div class="w3-blue" style="height:28px;width:{{percent2}}%"></div>
-    </div>
-    <p class="w3-wide">{{skills3}}</p>
-    <div class="w3-white">
-      <div class="w3-blue" style="height:28px;width:{{percent3}}%"></div>
-    </div><br>
-        <p class="w3-wide">{{skills4}}</p>
-    <div class="w3-white">
-      <div class="w3-blue" style="height:28px;width:{{percent4}}%"></div>
-    </div>
-    <p class="w3-wide">{{skills5}}</p>
-    <div class="w3-white">
-      <div class="w3-blue" style="height:28px;width:{{percent5}}%"></div>
-    </div>    <p class="w3-wide">{{skills6}}</p>
-    <div class="w3-white">
-      <div class="w3-blue" style="height:28px;width:{{percent6}}%"></div>
-    </div>
-    <p class="w3-wide">{{skills7}}</p>
-    <div class="w3-white">
-      <div class="w3-blue" style="height:28px;width:{{percent7}}%"></div>
-    </div>
-        <p class="w3-wide">{{skills8}}</p>
-    <div class="w3-white">
-      <div class="w3-blue" style="height:28px;width:{{percent8}}%"></div>
-    </div>
-        <p class="w3-wide">{{skills9}}</p></b>
-    <div class="w3-white">
-      <div class="w3-blue" style="height:28px;width:{{percent9}}%"></div>
-    </div>
-    <h3 class="w3-padding-16 w3-text , color="black"" id="projects">{{projects}}</h3>
-    <hr style="width:200px" class="w3-opacity">
-    <button onclick="writingnumber1()"><b>Details</b></button>
 
-<p id="detail1"></p>
-
-<script>
-var value = 0;
-var words = 'Successfully developed an encryption converter that would perform in converting English words into 6 random encrypts (RSA, Substitution, Product, Transposition, Caesar, and Playfair).';
-var limit = 50;
-
-function writingnumber1() {
-  if (value < words.length) {
-    document.getElementById("detail1").innerHTML += words.charAt(value);
-    value++;
-    setTimeout(writingnumber1, limit);
-  }
-}
-</script>
-    <iframe src="https://trinket.io/embed/python/ebb3f8bf5f" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
-    </br></br>
-<button onclick="typeWriter()">Detail 2</button>
-
-<p id="demo"></p>
-
-<script>
-var i = 0;
-var txt = 'Successfully have created this project. In this project, we build up a game that will allow two people to guess the word from a list of 10 words, If a player 1 guess the word right he will receive the point if player 2 guess the word then player 2 will receive the point if they both end up receiving same points then the game will draw';
-var speed = 50;
-
-function typeWriter() {
-  if (i < txt.length) {
-    document.getElementById("demo").innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  }
-}
-</script>
-
-    <iframe src="https://trinket.io/embed/python/4fc1500c48" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
-    <button class="w3-button w3-light-grey w3-padding-large w3-section">
-      <i class="fa fa-download"></i> <a href="Osama+Shaikh+Resume.pdf" download="Osama Shaikh Resume"> Download Resume</a>
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">
+      <span class="mark-bracket">&lt;</span>OS<span class="mark-bracket">/&gt;</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about"><span class="idx">01</span>about</a>
+      <a href="#stack"><span class="idx">02</span>stack</a>
+      <a href="#work"><span class="idx">03</span>work</a>
+      <a href="#log"><span class="idx">04</span>log</a>
+      <a href="#contact"><span class="idx">05</span>contact</a>
+    </nav>
+    <a href="C:\Users\Osama\OneDrive\Documents\GitHub\osamaahmedshaikh.github.io\webpage stuff\Osama+Shaikh+Resume.pdf" download class="nav-cta">
+      <span>Resume</span>
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v7.5M6 8.5L2.5 5M6 8.5L9.5 5M1 10.5h10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
     </button>
-  <div id="contact">
-    <h2 class="w3-text" , color="black" id = "contact">Contact Me</h2>
-    <hr style="width:200px" class="w3-opacity">
-
-    <div class="w3-section">
-      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i>{{address}}</p>
-      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i>{{phone}}</p>
-      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i>{{email}}</p>
-    </div><br>
-    <p>Send me a message to get in touch!.</p>
   </div>
-    <center>
-  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-    <a <i class="fa fa-facebook-official w3-hover-opacity" href="https://www.facebook.com/osama.shaikh.507/"></i></a>
-    <a <i class="fa fa-instagram w3-hover-opacity" href="https://www.instagram.com/_osamashaikh_/"></i></a>
-    <a <i class="fa fa-linkedin w3-hover-opacity" href="https://www.linkedin.com/in/osam-a-shaikh/"></i></a>
-  </footer>
-  </center>
-</div>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-   <button onclick="topFunction()" id="myBtn" title="Go to top">&#11165;</button>
-    <script>
-      var mybutton = document.getElementById("myBtn");
-      window.onscroll = function () { scrollFunction() };
-      function scrollFunction() {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        mybutton.style.display = "block";
-      } else {
-          mybutton.style.display = "none";
-          }
-          }
-          function topFunction() {
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
-          }
-    </script>
-<button class="open-button" onclick="openForm()">Admin Login</button>
-<div class="form-popup" id="myForm">
-  <form id="login" action="http://localhost:8080/login/" method="POST" enctype="application/json" class="form-container">
-    <h2>Login</h2>
+  <div class="nav-mobile" id="navMobile">
+    <a href="#about">01 / about</a>
+    <a href="#stack">02 / stack</a>
+    <a href="#work">03 / work</a>
+    <a href="#log">04 / log</a>
+    <a href="#contact">05 / contact</a>
+    <a href="assets/Osama_Shaikh_Resume.pdf" download>↓ / resume</a>
+  </div>
+</header>
 
-    <label for="email"><b>Username</b></label>
-    <input type="text" name="username" id="email" placeholder="Username" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" name="password" id="password" placeholder="Password" required>
-    <input type="checkbox" onclick="myFunction()"> <b>Show password</b>
-    </br></br>
+<section class="hero" id="top">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <p class="eyebrow"><span class="dot"></span>init — toronto, ontario, canada</p>
+      <h1 class="hero-title">
+        <span class="line">Osama</span>
+        <span class="line">Shaikh<span class="cursor-fixed">.</span></span>
+      </h1>
+      <p class="hero-sub">Systems Analyst supporting the FIFA World Cup 2026™ — with five years bridging enterprise infrastructure, service delivery, and software across the public and private sectors.</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-primary">
+          <span>View work</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost"><span>Get in touch</span></a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="terminal" id="terminal">
+        <div class="terminal-bar">
+          <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
+          <span class="terminal-title">osama@fifa2026 — zsh</span>
+        </div>
+        <div class="terminal-body" id="terminalBody">
+          <div class="tline"><span class="prompt">$</span> <span class="typed" id="typed1"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#about" class="scroll-hint" aria-label="Scroll to about">
+    <span>scroll</span>
+    <span class="scroll-line"><span class="scroll-dot"></span></span>
+  </a>
+</section>
+
+
+<section class="section" id="about">
+  <div class="section-inner">
+    <p class="eyebrow reveal">$ cat about.md</p>
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <div class="photo-frame">
+          <img src="C:\Users\Osama\OneDrive\Documents\GitHub\osamaahmedshaikh.github.io\webpage stuff\1705329829623.jpg" alt="Portrait of Osama Shaikh" loading="lazy">
+        </div>
+        <div class="photo-tag">
+          <span class="tag-dot"></span> open to connecting
+        </div>
+      </div>
+      <div class="about-copy">
+        <h2 class="section-title reveal">Infrastructure-minded.<br>Outcome-driven.</h2>
+        <p class="reveal">I'm a Systems Analyst currently supporting the FIFA World Cup 2026™ across Canada, Mexico, and the United States, with over five years of progressive experience spanning Shared Services Canada, Ontario's Ministry of Public and Business Service Delivery, and private-sector roles at Green Star and Scapade.</p>
+        <p class="reveal">My work sits at the intersection of infrastructure and delivery — architecting reliable networks, deploying scalable environments on AWS and Azure, managing endpoints and identity across Intune and Active Directory, and automating the workflows that keep enterprise IT running.</p>
+        <p class="reveal">I hold a Bachelor of Information Technology and a Bachelor of Commerce from Ontario Tech University, and I'm ITIL-certified with a Certified Ethical Hacker (CEH) credential — the same solutions-first mindset that got me through both degrees at once.</p>
+
+        <div class="about-stats reveal">
+          <div class="stat">
+            <span class="stat-num" data-count="5">0</span>
+            <span class="stat-label">years across<br>public &amp; private IT</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="32">0</span>
+            <span class="stat-label">certifications<br>&amp; credentials</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="2">0</span>
+            <span class="stat-label">degrees,<br>Ontario Tech</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section-alt" id="stack">
+  <div class="section-inner">
+    <p class="eyebrow reveal">$ ls ./skills --sort=domain</p>
+    <h2 class="section-title reveal">The stack, top to bottom.</h2>
+    <p class="section-lede reveal">From the network layer to the service desk — the domains I work across day to day.</p>
+
+    <div class="stack-grid stack-grid-4">
+      <div class="stack-col reveal">
+        <h3 class="stack-col-title"><span class="col-mono">01</span> Infrastructure</h3>
+        <div class="skill-row" data-pct="90"><span class="skill-name">Windows Server</span><div class="skill-track"><div class="skill-fill"></div></div><span class="skill-pct">90%</span></div>
+        <div class="skill-row" data-pct="82"><span class="skill-name">Linux / Unix</span><div class="skill-track"><div class="skill-fill"></div></div><span class="skill-pct">82%</span></div>
+        <div class="skill-row" data-pct="78"><span class="skill-name">AWS / Azure</span><div class="skill-track"><div class="skill-fill"></div></div><span class="skill-pct">78%</span></div>
+        <div class="skill-row" data-pct="80"><span class="skill-name">PowerShell</span><div class="skill-track"><div class="skill-fill"></div></div><span class="skill-pct">80%</span></div>
+      </div>
+
+      <div class="stack-col reveal">
+        <h3 class="stack-col-title"><span class="col-mono">02</span> Endpoint &amp; Identity</h3>
+        <div class="skill-row" data-pct="85"><span class="skill-name">Intune / Autopilot</span><div class="skill-track"><div class="skill-fill"></div></div><span class="skill-pct">85%</span></div>
+        <div class="skill-row" data-pct="82"><span class="skill-name">Active Directory</span><div class="skill-track"><div class="skill-fill"></div></div><span class="skill-pct">82%</span></div>
+        <div class="skill-row" data-pct="75"><span class="skill-name">Citrix / JAMF</span><div class="skill-track"><div class="skill-fill"></div></div><span class="skill-pct">75%</span></div>
+        <div class="skill-row" data-pct="80"><span class="skill-name">VPN / DNS</span><div class="skill-track"><div class="skill-fill"></div></div><span class="skill-pct">80%</span></div>
+      </div>
+
+      <div class="stack-col reveal">
+        <h3 class="stack-col-title"><span class="col-mono">03</span> Platforms &amp; Tooling</h3>
+        <div class="skill-row" data-pct="88"><span class="skill-name">ServiceNow</span><div class="skill-track"><div class="skill-fill"></div></div><span class="skill-pct">88%</span></div>
+        <div class="skill-row" data-pct="85"><span class="skill-name">SharePoint 365</span><div class="skill-track"><div class="skill-fill"></div></div><span class="skill-pct">85%</span></div>
+        <div class="skill-row" data-pct="78"><span class="skill-name">Jira</span><div class="skill-track"><div class="skill-fill"></div></div><span class="skill-pct">78%</span></div>
+        <div class="skill-row" data-pct="68"><span class="skill-name">SAP (ERP)</span><div class="skill-track"><div class="skill-fill"></div></div><span class="skill-pct">68%</span></div>
+      </div>
+
+      <div class="stack-col reveal">
+        <h3 class="stack-col-title"><span class="col-mono">04</span> Development &amp; Data</h3>
+        <div class="skill-row" data-pct="85"><span class="skill-name">Python / SQL</span><div class="skill-track"><div class="skill-fill"></div></div><span class="skill-pct">85%</span></div>
+        <div class="skill-row" data-pct="75"><span class="skill-name">JavaScript / Node</span><div class="skill-track"><div class="skill-fill"></div></div><span class="skill-pct">75%</span></div>
+        <div class="skill-row" data-pct="70"><span class="skill-name">Angular / PHP</span><div class="skill-track"><div class="skill-fill"></div></div><span class="skill-pct">70%</span></div>
+        <div class="skill-row" data-pct="72"><span class="skill-name">Power BI / Tableau</span><div class="skill-track"><div class="skill-fill"></div></div><span class="skill-pct">72%</span></div>
+      </div>
+    </div>
+
+    <div class="tools-strip reveal">
+      <span>ITIL</span><span>OWASP</span><span>ServiceNow ITSM</span><span>CEH Certified</span><span>DocuSign</span><span>Microsoft 365</span>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="work">
+  <div class="section-inner">
+    <p class="eyebrow reveal">$ ls ./projects</p>
+    <h2 class="section-title reveal">Selected work.</h2>
+    <p class="section-lede reveal">Four projects spanning enterprise architecture, full-stack development, and applied cryptography.</p>
+
+    <div class="projects">
+
+      <article class="project reveal">
+        <div class="project-media">
+          <div class="code-panel">
+            <div class="code-panel-head">
+              <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
+              <span class="code-path">~/projects/scapade/architecture.md</span>
+            </div>
+            <pre class="code-body"><code><span class="c-cm"># scapade — real-time booking pipeline</span>
+<span class="c-kw">service</span>: real_time_visualization
+<span class="c-kw">source</span>: airtable
+
+<span class="c-kw">pipeline</span>:
+  - <span class="c-fn">ingest</span>(bookings)
+  - <span class="c-fn">normalize</span>(geo, pricing)
+  - <span class="c-fn">publish</span>(dashboard)
+
+<span class="c-kw">goal</span>: <span class="c-str">"optimal performance & sustainability"</span></code></pre>
+          </div>
+        </div>
+        <div class="project-copy">
+          <span class="project-tag">01 — Software architecture</span>
+          <h3>Scapade — Real-Time Booking Architecture</h3>
+          <p>As Software Architect for Scapade, a platform for travelers and locals, I designed the system architecture behind its real-time data visualization layer, built an Airtable-backed database to speed up storage and querying, and resolved bottlenecks that were limiting performance and scalability.</p>
+          <div class="chip-row">
+            <span class="chip">System design</span><span class="chip">Airtable</span><span class="chip">Data visualization</span>
+          </div>
+          <a href="https://businessandit.ontariotechu.ca/experiential-learning/student-showcase/capstone-showcase/winter-2022-capstone-showcase.php" target="_blank" rel="noopener" class="demo-toggle">
+            <span>View capstone showcase</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M9 3H4M9 3v5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="project reveal reverse">
+        <div class="project-media">
+          <div class="code-panel">
+            <div class="code-panel-head">
+              <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
+              <span class="code-path">~/projects/faculty-cms/server.js</span>
+            </div>
+            <pre class="code-body"><code><span class="c-kw">const</span> router = express.<span class="c-fn">Router</span>();
+
+router.<span class="c-fn">get</span>(<span class="c-str">'/news'</span>, (req, res) =&gt; {
+  db.<span class="c-fn">collection</span>(<span class="c-str">'articles'</span>)
+    .<span class="c-fn">find</span>({})
+    .<span class="c-fn">sort</span>({ date: -<span class="c-num">1</span> })
+    .<span class="c-fn">toArray</span>((err, docs) =&gt; {
+      res.<span class="c-fn">json</span>(docs);
+    });
+});</code></pre>
+          </div>
+        </div>
+        <div class="project-copy">
+          <span class="project-tag">02 — Full stack</span>
+          <h3>Faculty Web Content Management System</h3>
+          <p>Designed and built both sides of a CMS for a university faculty — PHP and Node/Express on the back end, Angular, jQuery, HTML5 and CSS3 on the front. It served a homepage, a research group page, publications, news, and teaching content, all editable without touching code.</p>
+          <div class="chip-row">
+            <span class="chip">Node / Express</span><span class="chip">PHP</span><span class="chip">Angular</span><span class="chip">jQuery</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-media">
+          <div class="code-panel">
+            <div class="code-panel-head">
+              <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
+              <span class="code-path">~/projects/cipher-suite/main.py</span>
+            </div>
+            <pre class="code-body"><code><span class="c-kw">def</span> <span class="c-fn">encrypt</span>(text, method):
+    <span class="c-kw">if</span> method == <span class="c-str">"caesar"</span>:
+        <span class="c-kw">return</span> caesar_shift(text, <span class="c-num">3</span>)
+    <span class="c-kw">elif</span> method == <span class="c-str">"rsa"</span>:
+        <span class="c-kw">return</span> rsa_encrypt(text, pub_key)
+    <span class="c-kw">elif</span> method == <span class="c-str">"playfair"</span>:
+        <span class="c-kw">return</span> playfair(text, key_grid)
+    <span class="c-cm"># + substitution, product, transposition</span></code></pre>
+          </div>
+        </div>
+        <div class="project-copy">
+          <span class="project-tag">03 — Python</span>
+          <h3>Cryptographic Encryption Converter</h3>
+          <p>A converter that takes plain English text and runs it through six different classical and modern ciphers — RSA, Substitution, Product, Transposition, Caesar, and Playfair — so the same message can be compared across encryption methods.</p>
+          <div class="chip-row">
+            <span class="chip">Python</span><span class="chip">Cryptography</span><span class="chip">CLI</span>
+          </div>
+          <button class="demo-toggle" data-target="demo-1">
+            <span>Run live demo</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2l6 4-6 4V2z" fill="currentColor"/></svg>
+          </button>
+          <div class="demo-frame" id="demo-1">
+            <iframe src="https://trinket.io/embed/python/ebb3f8bf5f" width="100%" height="340" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen loading="lazy" title="Encryption converter live demo"></iframe>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal reverse">
+        <div class="project-media">
+          <div class="code-panel">
+            <div class="code-panel-head">
+              <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
+              <span class="code-path">~/projects/word-duel/game.py</span>
+            </div>
+            <pre class="code-body"><code><span class="c-kw">if</span> p1_score == p2_score:
+    <span class="c-fn">print</span>(<span class="c-str">"It's a draw!"</span>)
+<span class="c-kw">elif</span> p1_score &gt; p2_score:
+    <span class="c-fn">print</span>(<span class="c-str">"Player 1 wins!"</span>)
+<span class="c-kw">else</span>:
+    <span class="c-fn">print</span>(<span class="c-str">"Player 2 wins!"</span>)</code></pre>
+          </div>
+        </div>
+        <div class="project-copy">
+          <span class="project-tag">04 — Python</span>
+          <h3>Word Guess Duel</h3>
+          <p>A two-player word-guessing game built around a shared list of ten words. Each correct guess scores a point for that round's guesser; matching scores at the end call it a draw. Small scope, but a clean exercise in state and scoring logic.</p>
+          <div class="chip-row">
+            <span class="chip">Python</span><span class="chip">Game logic</span>
+          </div>
+          <button class="demo-toggle" data-target="demo-2">
+            <span>Run live demo</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2l6 4-6 4V2z" fill="currentColor"/></svg>
+          </button>
+          <div class="demo-frame" id="demo-2">
+            <iframe src="https://trinket.io/embed/python/4fc1500c48" width="100%" height="340" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen loading="lazy" title="Word Guess Duel live demo"></iframe>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section section-alt" id="log">
+  <div class="section-inner">
+    <p class="eyebrow reveal">$ git log --oneline --all</p>
+    <h2 class="section-title reveal">Experience &amp; education.</h2>
+
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Dec 2023 — Present</div>
+        <div class="tl-content">
+          <h4>System Analyst / SharePoint Developer</h4>
+          <p class="tl-org">FIFA World Cup 2026™ — Canada, Mexico &amp; United States · Toronto, ON</p>
+          <p>Supporting systems analysis and SharePoint development for the operational backbone of the 2026 FIFA World Cup, spanning all three host countries.</p>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2022 — 2023</div>
+        <div class="tl-content">
+          <h4>System Analyst / SharePoint Developer</h4>
+          <p class="tl-org">Shared Services Canada · Ontario, Canada</p>
+          <p>Delivered systems analysis and SharePoint solutions for federal government infrastructure under reliability clearance.</p>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2021 — 2022</div>
+        <div class="tl-content">
+          <h4>Systems Analyst</h4>
+          <p class="tl-org">Public and Business Service Delivery · Oshawa, ON</p>
+          <p>Systems analysis for the Ontario government, bridging technical infrastructure with public service delivery under TRITON security clearance.</p>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2021</div>
+        <div class="tl-content">
+          <h4>Software Architect</h4>
+          <p class="tl-org">Scapade — for travelers &amp; locals · Ontario, Canada</p>
+          <p>Designed the software architecture for a travel platform's real-time data visualization system and Airtable-backed database, presented at Ontario Tech's Capstone Showcase.</p>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2017 — 2021</div>
+        <div class="tl-content">
+          <h4>System Analyst</h4>
+          <p class="tl-org">Green Star</p>
+          <p>Four years of systems analysis experience — the foundation for the infrastructure and service-delivery work that followed.</p>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2016 — 2021</div>
+        <div class="tl-content">
+          <h4>B.IT, Technology Management &amp; B.Com, Banking &amp; Finance</h4>
+          <p class="tl-org">Ontario Tech University</p>
+          <p>Dual-degree program pairing technical systems education with finance and commercial law. Dean's List, GPA 3.64, and 1st place in a case competition held in collaboration with Deloitte.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="certs-block reveal">
+      <h3 class="stack-col-title"><span class="col-mono">✓</span> Licenses &amp; Certifications</h3>
+
+      <div class="cert-group">
+        <span class="cert-group-label">IBM</span>
+        <div class="cert-grid">
+          <div class="cert-card"><span class="cert-name">IT Support Professional</span><span class="cert-meta">Issued Nov 2023</span></div>
+          <div class="cert-card"><span class="cert-name">zSystems Administrator</span><span class="cert-meta">Issued Sep 2023</span></div>
+          <div class="cert-card"><span class="cert-name">z/OS Mainframe Practitioner</span><span class="cert-meta">Issued Sep 2023</span></div>
+          <div class="cert-card"><span class="cert-name">Introduction to System Programming on IBM Z</span><span class="cert-meta">Issued Sep 2023</span></div>
+          <div class="cert-card"><span class="cert-name">Mainframe Specialist — REXX Programming, Experienced</span><span class="cert-meta">Issued Sep 2023</span></div>
+          <div class="cert-card"><span class="cert-name">Cloud Computing Fundamentals</span><span class="cert-meta">Issued Aug 2023</span></div>
+          <div class="cert-card"><span class="cert-name">Cybersecurity Fundamentals</span><span class="cert-meta">Issued Jun 2023</span></div>
+          <div class="cert-card"><span class="cert-name">Project Management Fundamentals</span><span class="cert-meta">Issued Oct 2023</span></div>
+        </div>
+      </div>
+
+      <div class="cert-group">
+        <span class="cert-group-label">Fortinet</span>
+        <div class="cert-grid">
+          <div class="cert-card"><span class="cert-name">FortiGate Infrastructure 7.2</span><span class="cert-meta">Issued Oct 2023</span></div>
+          <div class="cert-card"><span class="cert-name">FortiGate Infrastructure 7.0</span><span class="cert-meta">Issued Oct 2023</span></div>
+          <div class="cert-card"><span class="cert-name">NSE 4 — FortiGate Security 7.0</span><span class="cert-meta">Issued Apr 2023</span></div>
+          <div class="cert-card"><span class="cert-name">Cloud Security 7.0 for Azure</span><span class="cert-meta">Issued Oct 2023</span></div>
+          <div class="cert-card"><span class="cert-name">Cloud Security 7.0 for AWS</span><span class="cert-meta">Issued Oct 2023</span></div>
+          <div class="cert-card"><span class="cert-name">NSE 1 — Network Security Associate</span><span class="cert-meta">Issued Apr 2023</span></div>
+          <div class="cert-card"><span class="cert-name">Introduction to the Threat Landscape 1.0</span><span class="cert-meta">Issued Oct 2023</span></div>
+          <div class="cert-card"><span class="cert-name">Information Security Awareness</span><span class="cert-meta">Issued Apr 2023</span></div>
+        </div>
+      </div>
+
+      <div class="cert-group">
+        <span class="cert-group-label">Cisco</span>
+        <div class="cert-grid">
+          <div class="cert-card"><span class="cert-name">Certified Ethical Hacker (CEH)</span><span class="cert-meta">Issued May 2025</span></div>
+          <div class="cert-card"><span class="cert-name">Junior Cybersecurity Analyst</span><span class="cert-meta">Issued May 2025</span></div>
+          <div class="cert-card"><span class="cert-name">Network Technician</span><span class="cert-meta">Issued May 2025</span></div>
+          <div class="cert-card"><span class="cert-name">Network Addressing &amp; Basic Troubleshooting</span><span class="cert-meta">Issued May 2025</span></div>
+          <div class="cert-card"><span class="cert-name">Networking Basics</span><span class="cert-meta">Issued May 2025</span></div>
+          <div class="cert-card"><span class="cert-name">Network Support and Security</span><span class="cert-meta">Issued Jun 2024</span></div>
+          <div class="cert-card"><span class="cert-name">Computer Hardware Basics</span><span class="cert-meta">Issued Jun 2024</span></div>
+        </div>
+      </div>
+
+      <div class="cert-group">
+        <span class="cert-group-label">Project Management Institute</span>
+        <div class="cert-grid">
+          <div class="cert-card"><span class="cert-name">PMI Citizen Developer™ Business Architect</span><span class="cert-meta">Issued Sep 2025</span></div>
+          <div class="cert-card"><span class="cert-name">Business Continuity</span><span class="cert-meta">Issued Sep 2025</span></div>
+          <div class="cert-card"><span class="cert-name">Generative AI Overview for Project Managers</span><span class="cert-meta">Issued Sep 2025</span></div>
+        </div>
+      </div>
+
+      <div class="cert-group">
+        <span class="cert-group-label">Other</span>
+        <div class="cert-grid">
+          <div class="cert-card"><span class="cert-name">Foundations of Project Management</span><span class="cert-meta">Google · Jun 2024</span></div>
+          <div class="cert-card"><span class="cert-name">Google IT Support Professional</span><span class="cert-meta">Google · May 2023</span></div>
+          <div class="cert-card"><span class="cert-name">Data Modeling in Power BI</span><span class="cert-meta">Microsoft · Dec 2023</span></div>
+          <div class="cert-card"><span class="cert-name">AWS Cloud Technical Essentials</span><span class="cert-meta">AWS · Dec 2023</span></div>
+          <div class="cert-card"><span class="cert-name">Red Hat Enterprise Linux Technical</span><span class="cert-meta">Red Hat · Nov 2023</span></div>
+          <div class="cert-card"><span class="cert-name">Red Hat Agile Integration Technical</span><span class="cert-meta">Red Hat · Nov 2023</span></div>
+          <div class="cert-card"><span class="cert-name">ServiceNow ITSM Processes</span><span class="cert-meta">ServiceNow · Nov 2023</span></div>
+          <div class="cert-card"><span class="cert-name">Member, CIPS — Canada's Association of I.T. Professionals</span><span class="cert-meta">CIPS</span></div>
+          <div class="cert-card"><span class="cert-name">Worker Health and Safety Awareness</span><span class="cert-meta">Ontario Labour, Immigration, Training &amp; Skills</span></div>
+          <div class="cert-card"><span class="cert-name">Emergency First Aid &amp; CPR C + AED</span><span class="cert-meta">Government of Ontario</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section contact" id="contact">
+  <div class="section-inner">
+    <p class="eyebrow reveal">$ ./deploy --target=inbox</p>
+    <h2 class="section-title big reveal">Let's build<br>something.</h2>
+    <p class="section-lede reveal">Open to connecting with IT professionals, hiring managers, and industry peers — let's exchange insights or explore a collaboration.</p>
+
+    <div class="contact-grid">
+      <div class="contact-links reveal">
+        <a href="mailto:osamaahmedshaikh@hotmail.com" class="contact-link">
+          <span class="contact-label">email</span>
+          <span class="contact-value">osamaahmedshaikh@hotmail.com</span>
+        </a>
+        <a href="tel:+16477197345" class="contact-link">
+          <span class="contact-label">phone</span>
+          <span class="contact-value">(647) 719-7345</span>
+        </a>
+        <div class="contact-link contact-link-static">
+          <span class="contact-label">location</span>
+          <span class="contact-value">Toronto, Ontario, Canada</span>
+        </div>
+      </div>
+
+      <div class="contact-social reveal">
+        <a href="https://www.linkedin.com/in/samsha" target="_blank" rel="noopener" class="social-btn">
+          <span>LinkedIn</span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M9 3H4M9 3v5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://github.com/osamaahmedshaikh" target="_blank" rel="noopener" class="social-btn">
+          <span>GitHub</span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M9 3H4M9 3v5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://osamaahmedshaikh.wordpress.com/" target="_blank" rel="noopener" class="social-btn">
+          <span>Blog</span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M9 3H4M9 3v5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="C:\Users\Osama\OneDrive\Documents\GitHub\osamaahmedshaikh.github.io\webpage stuff\Osama+Shaikh+Resume.pdf" download class="social-btn social-btn-fill">
+          <span>Download résumé</span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v7.5M6 8.5L2.5 5M6 8.5L9.5 5M1 10.5h10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© 2026 Osama Shaikh</span>
+    <span class="footer-status"><span class="tag-dot"></span> built &amp; deployed from Toronto</span>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 11V3M3 7l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
 
 <script>
-function myFunction() {
-  var x = document.getElementById("password");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
+
+const nav = document.getElementById('nav');
+const navBurger = document.getElementById('navBurger');
+const navMobile = document.getElementById('navMobile');
+const toTop = document.getElementById('toTop');
+
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  nav.classList.toggle('scrolled', y > 20);
+  toTop.classList.toggle('show', y > 700);
+}, { passive: true });
+
+navBurger.addEventListener('click', () => {
+  const open = navMobile.classList.toggle('open');
+  navBurger.setAttribute('aria-expanded', open);
+});
+navMobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  navMobile.classList.remove('open');
+}));
+
+toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+
+const terminalBody = document.getElementById('terminalBody');
+const lines = [
+  { type: 'typed', text: 'whoami' },
+  { type: 'result', text: 'osama_shaikh — systems analyst' },
+  { type: 'typed', text: 'cat role.txt' },
+  { type: 'accent', text: 'System Analyst, FIFA World Cup 2026™' },
+  { type: 'typed', text: 'status --check' },
+  { type: 'result', text: '✓ open to connecting' },
+];
+
+function typeLine(el, text, speed = 34) {
+  return new Promise(resolve => {
+    let i = 0;
+    el.classList.add('typed');
+    const interval = setInterval(() => {
+      el.textContent = text.slice(0, i + 1);
+      i++;
+      if (i >= text.length) {
+        clearInterval(interval);
+        el.classList.add('done');
+        resolve();
+      }
+    }, speed);
+  });
+}
+
+function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+async function runTerminal() {
+  const firstTyped = document.getElementById('typed1');
+  await typeLine(firstTyped, lines[0].text);
+  await wait(280);
+
+  for (let idx = 1; idx < lines.length; idx++) {
+    const line = lines[idx];
+    const div = document.createElement('div');
+    div.className = 'tline';
+    terminalBody.appendChild(div);
+
+    if (line.type === 'typed') {
+      div.innerHTML = '<span class="prompt">$</span> <span class="typed"></span>';
+      const span = div.querySelector('.typed');
+      await typeLine(span, line.text);
+      await wait(240);
+    } else {
+      div.classList.add(line.type);
+      div.textContent = line.text;
+      div.style.opacity = '0';
+      await wait(120);
+      div.style.transition = 'opacity .4s ease';
+      div.style.opacity = '1';
+      await wait(360);
+    }
   }
 }
-</script>
 
-    <button type="Submit" class="btn">Login</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
-</div>
-<script>
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
 
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
+const heroObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      runTerminal();
+      heroObserver.disconnect();
+    }
+  });
+}, { threshold: 0.2 });
+heroObserver.observe(document.getElementById('terminal'));
+
+
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => revealObserver.observe(el));
+
+
+const skillRows = document.querySelectorAll('.skill-row');
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const row = entry.target;
+      const pct = row.getAttribute('data-pct');
+      const fill = row.querySelector('.skill-fill');
+      requestAnimationFrame(() => { fill.style.width = pct + '%'; });
+      skillObserver.unobserve(row);
+    }
+  });
+}, { threshold: 0.4 });
+skillRows.forEach(row => skillObserver.observe(row));
+
+
+const statNums = document.querySelectorAll('.stat-num');
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.getAttribute('data-count'), 10);
+      let current = 0;
+      const duration = 900;
+      const startTime = performance.now();
+      function step(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        current = Math.floor(progress * target);
+        el.textContent = current;
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = target;
+      }
+      requestAnimationFrame(step);
+      statObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+statNums.forEach(el => statObserver.observe(el));
+
+
+document.querySelectorAll('.demo-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = document.getElementById(btn.getAttribute('data-target'));
+    const isOpen = target.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    btn.querySelector('span').textContent = isOpen ? 'Hide live demo' : 'Run live demo';
+  });
+});
+
 </script>
-<div class="tcontainer">
-        <div class="ticker-wrap">
-            <div class="ticker-move">
-                <div class="ticker-item">𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐦𝐲 𝐖𝐞𝐛𝐬𝐢𝐭𝐞!</div>
-                <div class="ticker-item">𝐓𝐡𝐞 𝐜𝐫𝐞𝐚𝐭𝐨𝐫𝐬 𝐨𝐟 𝐭𝐡𝐢𝐬 𝐰𝐞𝐛𝐬𝐢𝐭𝐞 𝐢𝐬 𝐎𝐬𝐚𝐦𝐚 𝐒𝐡𝐚𝐢𝐤𝐡.</div>
-                <div class="ticker-item">𝐓𝐡𝐢𝐬 𝐖𝐞𝐛𝐩𝐚𝐠𝐞 𝐡𝐚𝐬 𝐂𝐨𝐩𝐲𝐫𝐢𝐠𝐡𝐭𝐬 &#169;.</div>
-                <div class="ticker-item">𝐈 𝐡𝐨𝐩𝐞 𝐲𝐨𝐮 𝐞𝐧𝐣𝐨𝐲 𝐭𝐡𝐞 𝐰𝐞𝐛𝐬𝐢𝐭𝐞 𝐚𝐧𝐝 𝐓𝐡𝐚𝐧𝐤 𝐲𝐨𝐮 𝐚𝐠𝐚𝐢𝐧 𝐟𝐨𝐫 𝐯𝐢𝐬𝐢𝐭𝐢𝐧𝐠 𝐭𝐡𝐞 𝐰𝐞𝐛𝐬𝐢𝐭𝐞.<span>&#128102;&#127995;</span>.</div>
-            </div>
-        </div>
-</div>
-</html>
 </body>
 </html>
